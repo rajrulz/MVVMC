@@ -55,6 +55,8 @@ class UserCellView: UIView {
         userImageView.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         userImageView.layer.borderWidth = 1
         userImageView.contentMode = .scaleAspectFit
+
+        backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         setUpLayout()
     }
 
@@ -70,7 +72,6 @@ class UserCellView: UIView {
         verticalStackView.addArrangedSubview(typeLabel)
         horizontalStackView.addArrangedSubview(verticalStackView)
 
-        self.backgroundColor = .systemGray
         NSLayoutConstraint.activate([
             self.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: -Spacing.small),
             self.topAnchor.constraint(equalTo: horizontalStackView.topAnchor, constant: -Spacing.small),

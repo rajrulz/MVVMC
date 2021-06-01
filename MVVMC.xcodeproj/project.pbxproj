@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF31D0FE2664270400F76699 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31D0FD2664270400F76699 /* MainCoordinator.swift */; };
+		EF31D0FE2664270400F76699 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31D0FD2664270400F76699 /* UserListCoordinator.swift */; };
 		EF768BD526641C4B00865FFD /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD426641C4B00865FFD /* UserTableViewCell.swift */; };
 		EF768BD92664200B00865FFD /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD82664200B00865FFD /* UserCellView.swift */; };
+		EFC10CB3266630D9006E849A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC10CB2266630D9006E849A /* AppCoordinator.swift */; };
 		EFC228962663E70A0076C408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC228952663E70A0076C408 /* AppDelegate.swift */; };
 		EFC228982663E70A0076C408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC228972663E70A0076C408 /* SceneDelegate.swift */; };
 		EFC2289A2663E70A0076C408 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC228992663E70A0076C408 /* UserListViewController.swift */; };
@@ -24,9 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EF31D0FD2664270400F76699 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		EF31D0FD2664270400F76699 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		EF768BD426641C4B00865FFD /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		EF768BD82664200B00865FFD /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
+		EFC10CB2266630D9006E849A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EFC228922663E70A0076C408 /* MVVMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC228952663E70A0076C408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFC228972663E70A0076C408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +58,8 @@
 		EF31D1002664270B00F76699 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				EF31D0FD2664270400F76699 /* MainCoordinator.swift */,
+				EF31D0FD2664270400F76699 /* UserListCoordinator.swift */,
+				EFC10CB2266630D9006E849A /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -195,7 +198,8 @@
 				EFC228AD2663ECAB0076C408 /* User.swift in Sources */,
 				EFC368322664C51400E4D6A6 /* UserCellView+Model.swift in Sources */,
 				EFC228A02663E70B0076C408 /* MVVMC.xcdatamodeld in Sources */,
-				EF31D0FE2664270400F76699 /* MainCoordinator.swift in Sources */,
+				EFC10CB3266630D9006E849A /* AppCoordinator.swift in Sources */,
+				EF31D0FE2664270400F76699 /* UserListCoordinator.swift in Sources */,
 				EF768BD92664200B00865FFD /* UserCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

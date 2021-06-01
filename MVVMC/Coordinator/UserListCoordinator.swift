@@ -16,13 +16,11 @@ protocol Coordinator: AnyObject {
     func start()
 }
 
-class MainCoordinator: Coordinator {
-    var childCoordinators: [Coordinator]
+class UserListCoordinator: Coordinator {
+    var childCoordinators: [Coordinator] = []
 
     var navigationController: UINavigationController
     
-    private var window: UIWindow
-
     private var onFinish: (()-> Void)?
     private var userService: UserService
 
@@ -31,13 +29,10 @@ class MainCoordinator: Coordinator {
 
     private let viewController: UserListViewController
 
-    init(window: UIWindow, navigationController: UINavigationController) {
-        self.window = window
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.childCoordinators = []
         self.userService = UserServiceClient()
         self.viewController = UserListViewController()
-        viewController.coordinator = self
         setUp()
     }
 
@@ -45,12 +40,13 @@ class MainCoordinator: Coordinator {
         guard let url = URL(string: "https://api.github.com/users?since=0") else {
             return
         }
+        self.viewController.delegate = self
         self.navigationController.pushViewController(viewController, animated: true)
 
         userService.users(for: .init(url: url))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }) { [weak self] in
-                self?.viewController.model = UserListViewController.Model(response: $0)
+                self?.viewController.model = .init(response: $0, title: "GitHub Users")
             }
             .store(in: &cancellableSubscribers)
     }
@@ -60,5 +56,11 @@ class MainCoordinator: Coordinator {
         self.navigationController.navigationBar.largeTitleTextAttributes =
             [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1),
              NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30)]
+    }
+}
+
+extension UserListCoordinator: UserListViewControllerDelegate {
+    func didSelectUser(_ user: UserCellView.Model, sender: UserListViewController) {
+        
     }
 }

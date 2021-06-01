@@ -10,10 +10,12 @@ import Foundation
 
 extension UserListViewController {
     struct Model {
+        var title: String
         var cellModels: [UserCellView.Model]
 
-        init(response: UserService.Response = .init(data: [])) {
+        init(response: UserService.Response = .init(data: []), title: String = "") {
             self.cellModels = response.data.map { UserCellView.Model(user: $0) }
+            self.title = title
         }
 
         func generateSections() -> [CellDisplayable] {

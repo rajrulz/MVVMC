@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UserListViewControllerDelegate: class {
+    func didSelectUser(_ user: UserCellView.Model, sender: UserListViewController)
+}
+
 class UserListViewController: UIViewController {
 
     var model: Model {
@@ -15,8 +19,8 @@ class UserListViewController: UIViewController {
             applyModel()
         }
     }
-    var sections: [CellDisplayable] = []
-    weak var coordinator: Coordinator?
+    private var sections: [CellDisplayable] = []
+    weak var delegate: UserListViewControllerDelegate?
     private var tableView: UITableView?
     private var loadingIndicator = UIActivityIndicatorView()
 
@@ -56,7 +60,7 @@ class UserListViewController: UIViewController {
     }
 
     func applyModel() {
-        self.title = "GitHub Users"
+        self.title = model.title
         sections =  model.generateSections()
         if sections.isEmpty {
             showLoadingIndicator()

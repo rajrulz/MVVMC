@@ -13,7 +13,7 @@ protocol UserService {
     typealias Request = _UserService.Request
     typealias Response = _UserService.Response
     
-    func users(for request: Request) -> AnyPublisher<Response, Error>
+    func users(for request: Request) -> AnyPublisher<UserService.Response, Error>
 }
 
 enum _UserService {

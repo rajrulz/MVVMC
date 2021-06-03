@@ -30,7 +30,7 @@ class UserCellView: UIView {
         self.model = model
         userImageView = CDNImageView(url: model.avatarUrl)
         super.init(frame: .zero)
-        setUp()
+        setUpView()
         applyModel()
     }
     
@@ -38,7 +38,7 @@ class UserCellView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setUp() {
+    func setUpView() {
         horizontalStackView.alignment = .top
         horizontalStackView.axis = .horizontal
 
@@ -57,10 +57,10 @@ class UserCellView: UIView {
         userImageView.contentMode = .scaleAspectFit
 
         backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        setUpLayout()
+        setUpViewLayout()
     }
 
-    func setUpLayout() {
+    func setUpViewLayout() {
         self.addAutoLayoutSubView(horizontalStackView)
         
         horizontalStackView.addArrangedSubview(userImageView)

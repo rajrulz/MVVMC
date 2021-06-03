@@ -11,7 +11,6 @@ import UIKit
 class UserTableViewCell: UITableViewCell {
     static let id = "UserTableViewCell"
 
-
     func attach(cellView: CellDisplayable) {
         for subview in contentView.subviews {
             subview.removeFromSuperview()

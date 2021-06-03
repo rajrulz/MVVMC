@@ -10,20 +10,9 @@ import Foundation
 import UIKit
 import Combine
 
-protocol Coordinator: AnyObject {
-    var childCoordinators: [Coordinator] { get set }
-    var navigationController: UINavigationController { get set }
-    func start()
-}
-
-class UserListCoordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
-
+class UserListCoordinator: Coordinator<Void> {
     var navigationController: UINavigationController
-    
-    private var onFinish: (()-> Void)?
     private var userService: UserService
-
     private var cancellableSubscribers = Set<AnyCancellable>()
     private var userResponse: UserService.Response?
 
@@ -33,10 +22,12 @@ class UserListCoordinator: Coordinator {
         self.navigationController = navigationController
         self.userService = UserServiceClient()
         self.viewController = UserListViewController()
+        super.init()
         setUp()
     }
 
-    func start() {
+    override func start() {
+        super.start()
         guard let url = URL(string: "https://api.github.com/users?since=0") else {
             return
         }
@@ -60,7 +51,9 @@ class UserListCoordinator: Coordinator {
 }
 
 extension UserListCoordinator: UserListViewControllerDelegate {
-    func didSelectUser(_ user: UserCellView.Model, sender: UserListViewController) {
-        
+    func didSelectUser(_ user: UserContext, sender: UserListViewController) {
+        let userDetailCoordinator = UserDetailCoordinator(userContext: user, navigationController: self.navigationController)
+        addChildCoordinator(userDetailCoordinator)
+        userDetailCoordinator.start()
     }
 }

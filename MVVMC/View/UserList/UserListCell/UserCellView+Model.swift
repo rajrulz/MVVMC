@@ -14,12 +14,16 @@ extension UserCellView {
         var type: String
         var username: String
         var id: Int
+        var url: URL?
 
         init(user: User) {
             self.username = user.login ?? ""
             self.type = user.type ?? ""
             self.avatarUrl = user.avatarURL ?? ""
             self.id = user.id ?? 0
+            if let url = user.url {
+                self.url = URL(string: url) ?? nil
+            }
         }
     }
 }

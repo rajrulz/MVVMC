@@ -10,19 +10,24 @@ import Foundation
 
 extension UserDetailViewController {
     struct Model {
-        var userName: String = ""
-        var id: Int = 0
-        var name: String = ""
-        var followers: Int = 0
-        var following: Int = 0
-        var followersURL: URL?
-        var followingURL: URL?
-        var type: String = ""
-        var company: String = ""
-        var blog: URL?
-        var avatarURL: URL?
-
-        init() { }
+        private var userName: String = ""
+        private var id: Int = 0
+        private var name: String = ""
+        private var followers: Int = 0
+        private var following: Int = 0
+        private var followersURL: URL?
+        private var followingURL: URL?
+        private var type: String = ""
+        private var company: String = ""
+        private var blog: String = ""
+        private var avatarURL: String = ""
+        private var email: String = ""
+        private var twitterUserName: String = ""
+        private var bio: String = ""
+        private var location: String = ""
+        var screenTitle: String = ""
+        
+        init() {}
 
         init(userDetail: UserDetail) {
             self.userName = userDetail.login ?? ""
@@ -32,22 +37,40 @@ extension UserDetailViewController {
             self.following = userDetail.following ?? 0
             self.type = userDetail.type ?? ""
             self.company = userDetail.company ?? ""
+            self.avatarURL = userDetail.avatarURL ?? ""
             if let followersURL = userDetail.followersURL {
                 self.followersURL = URL(string: followersURL) ?? nil
             }
             if let followingURL = userDetail.followingURL {
                 self.followingURL = URL(string: followingURL) ?? nil
             }
-            if let avatarURL = userDetail.avatarURL {
-                self.followingURL = URL(string: avatarURL) ?? nil
-            }
-            if let blogURL = userDetail.blog {
-                self.blog = URL(string: blogURL) ?? nil
-            }
+            self.blog = userDetail.blog ?? ""
+            self.email = userDetail.email ?? ""
+            self.bio = userDetail.bio ?? ""
+            self.location = userDetail.location ?? ""
+            self.twitterUserName = userDetail.twitterUsername ?? ""
+            screenTitle = self.userName
         }
 
         func isEmpty() -> Bool {
             return self.id == 0
+        }
+
+        func generateSections() -> [CellDisplayable] {
+            return [
+                UserImageView(model: .init(imageUrlStr: avatarURL)),
+                FollowersCellView(model: .init(followers: followers,
+                                               following: following,
+                                               followersURL: followersURL,
+                                               followingURL: followingURL)),
+                UserDetailsView(model: .init(name: name,
+                                             company: company,
+                                             blog: blog,
+                                             email: email,
+                                             location: location,
+                                             twitterUsername: twitterUserName,
+                                             bio: bio))
+            ]
         }
     }
 }

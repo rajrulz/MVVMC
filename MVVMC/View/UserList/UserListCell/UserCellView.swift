@@ -56,7 +56,7 @@ class UserCellView: UIView {
         userImageView.layer.borderWidth = 1
         userImageView.contentMode = .scaleAspectFit
 
-        backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.8874396375, green: 0.8874396375, blue: 0.8874396375, alpha: 1)
         setUpViewLayout()
     }
 

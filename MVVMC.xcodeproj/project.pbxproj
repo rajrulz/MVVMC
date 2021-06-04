@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0FD58326696EB6008B209B /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0FD58226696EB6008B209B /* UserDetailTableViewCell.swift */; };
+		EF0FD58626697270008B209B /* FollowersCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0FD58526697270008B209B /* FollowersCellView.swift */; };
 		EF31D0FE2664270400F76699 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31D0FD2664270400F76699 /* UserListCoordinator.swift */; };
 		EF3A004726663F94006DB2B8 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */; };
 		EF3A004F26665F86006DB2B8 /* UserDetailViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */; };
 		EF3A0053266669F3006DB2B8 /* UserImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A0052266669F3006DB2B8 /* UserImageCell.swift */; };
+		EF6B670F266ABD8200102F6A /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B670E266ABD8200102F6A /* UserDetailsView.swift */; };
 		EF768BD526641C4B00865FFD /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD426641C4B00865FFD /* UserTableViewCell.swift */; };
 		EF768BD92664200B00865FFD /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD82664200B00865FFD /* UserCellView.swift */; };
 		EFC10CB3266630D9006E849A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC10CB2266630D9006E849A /* AppCoordinator.swift */; };
@@ -31,10 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF0FD58226696EB6008B209B /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
+		EF0FD58526697270008B209B /* FollowersCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCellView.swift; sourceTree = "<group>"; };
 		EF31D0FD2664270400F76699 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailViewController+Model.swift"; sourceTree = "<group>"; };
 		EF3A0052266669F3006DB2B8 /* UserImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageCell.swift; sourceTree = "<group>"; };
+		EF6B670E266ABD8200102F6A /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		EF768BD426641C4B00865FFD /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		EF768BD82664200B00865FFD /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
 		EFC10CB2266630D9006E849A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -89,19 +95,22 @@
 		EF3A004C26665DA9006DB2B8 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
-				EF3A0051266669BB006DB2B8 /* UserDetailCells */,
+				EF3A0051266669BB006DB2B8 /* UserDetailCellViews */,
 				EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */,
 				EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
 		};
-		EF3A0051266669BB006DB2B8 /* UserDetailCells */ = {
+		EF3A0051266669BB006DB2B8 /* UserDetailCellViews */ = {
 			isa = PBXGroup;
 			children = (
+				EF0FD58226696EB6008B209B /* UserDetailTableViewCell.swift */,
 				EF3A0052266669F3006DB2B8 /* UserImageCell.swift */,
+				EF0FD58526697270008B209B /* FollowersCellView.swift */,
+				EF6B670E266ABD8200102F6A /* UserDetailsView.swift */,
 			);
-			path = UserDetailCells;
+			path = UserDetailCellViews;
 			sourceTree = "<group>";
 		};
 		EFC10CB626663485006E849A /* Model */ = {
@@ -246,16 +255,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0FD58626697270008B209B /* FollowersCellView.swift in Sources */,
 				EF3A004726663F94006DB2B8 /* UserDetailViewController.swift in Sources */,
 				EF3A0053266669F3006DB2B8 /* UserImageCell.swift in Sources */,
 				EFC2289A2663E70A0076C408 /* UserListViewController.swift in Sources */,
 				EFC228962663E70A0076C408 /* AppDelegate.swift in Sources */,
 				EF768BD526641C4B00865FFD /* UserTableViewCell.swift in Sources */,
+				EF0FD58326696EB6008B209B /* UserDetailTableViewCell.swift in Sources */,
 				EFC368352664C59C00E4D6A6 /* UserListViewController+Model.swift in Sources */,
 				EFC3682F2664417A00E4D6A6 /* ImageService.swift in Sources */,
 				EFC228AF2663ECC50076C408 /* UserService.swift in Sources */,
 				EFC228982663E70A0076C408 /* SceneDelegate.swift in Sources */,
 				EFC228AD2663ECAB0076C408 /* User.swift in Sources */,
+				EF6B670F266ABD8200102F6A /* UserDetailsView.swift in Sources */,
 				EFC10CBB26663657006E849A /* UserDetailService.swift in Sources */,
 				EFC10CB826663595006E849A /* UserDetailCoordinator.swift in Sources */,
 				EFC368322664C51400E4D6A6 /* UserCellView+Model.swift in Sources */,

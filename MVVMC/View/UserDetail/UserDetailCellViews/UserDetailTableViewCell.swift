@@ -1,15 +1,15 @@
 //
-//  UserTableViewCell.swift
+//  UserDetailTableViewCell.swift
 //  MVVMC
 //
-//  Created by Rajneesh Biswal on 31/05/21.
+//  Created by Rajneesh Biswal on 04/06/21.
 //  Copyright © 2021 tawkto. All rights reserved.
 //
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell {
-    static let id = "UserTableViewCell"
+class UserDetailTableViewCell: UITableViewCell {
+    static let id = "UserDetailTableViewCell"
 
     func attach(cellView: CellDisplayable) {
         for subview in contentView.subviews {
@@ -18,9 +18,9 @@ class UserTableViewCell: UITableViewCell {
         
         let displayView = cellView.getView()
         contentView.addAutoLayoutSubView(displayView)
+        displayView.backgroundColor = #colorLiteral(red: 0.8874396375, green: 0.8874396375, blue: 0.8874396375, alpha: 1)
         displayView.layer.cornerRadius = Spacing.small
-
-        NSLayoutConstraint.activate([
+                NSLayoutConstraint.activate([
             displayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Spacing.small),
             displayView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Spacing.small),
             displayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Spacing.small),
@@ -29,23 +29,9 @@ class UserTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
-        super.prepareForReuse()
         for subview in contentView.subviews {
             subview.removeFromSuperview()
         }
+        super.prepareForReuse()
     }
-}
-
-extension UIView {
-    func addAutoLayoutSubView(_ view: UIView) {
-        self.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-    }
-}
-
-enum Spacing {
-    static let small = CGFloat(16.0)
-    static let vSmall = CGFloat(8.0)
-    static let medium = CGFloat(32.0)
-    static let large = CGFloat(64.0)
 }

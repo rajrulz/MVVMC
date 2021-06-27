@@ -1,13 +1,12 @@
 //
-//  AppCoordinator.swift
+//  Coordinator.swift
 //  MVVMC
 //
-//  Created by Rajneesh Biswal on 01/06/21.
+//  Created by Rajneesh Biswal on 27/06/21.
 //  Copyright © 2021 tawkto. All rights reserved.
 //
 
 import Foundation
-import UIKit
 
 class Coordinator<CoordinationResult> {
     private let identifier = UUID()
@@ -33,23 +32,5 @@ class Coordinator<CoordinationResult> {
     private  func removeChildCoordinator(_ coordinator: Coordinator?) {
         guard let coordinator = coordinator else { return }
         childCoordinators[coordinator.identifier] = nil
-    }
-}
-
-class AppCoordinator: Coordinator<Void> {
-    var window: UIWindow
-    var navigationController: UINavigationController
-
-    init(scene: UIWindowScene) {
-        window = UIWindow(windowScene: scene)
-        navigationController = UINavigationController()
-        window.rootViewController = navigationController
-    }
-
-    override func start() {
-        let userListCoordinator = UserListCoordinator(navigationController: navigationController)
-        userListCoordinator.start()
-        addChildCoordinator(userListCoordinator)
-        window.makeKeyAndVisible()
     }
 }

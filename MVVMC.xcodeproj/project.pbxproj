@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0CB1A726887B5A00FC1074 /* UserListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1A626887B5A00FC1074 /* UserListAPI.swift */; };
+		EF0CB1AA26887F3700FC1074 /* UserDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1A926887F3700FC1074 /* UserDetailAPI.swift */; };
+		EF0CB1AF2688827A00FC1074 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1AE2688827A00FC1074 /* Container.swift */; };
+		EF0CB1B2268882A200FC1074 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1B1268882A200FC1074 /* Coordinator.swift */; };
+		EF0CB1BF2688857B00FC1074 /* UserDetailPluginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1BE2688857B00FC1074 /* UserDetailPluginAPI.swift */; };
+		EF0CB1C3268885AE00FC1074 /* UserListPluginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CB1C2268885AE00FC1074 /* UserListPluginAPI.swift */; };
 		EF0FD58326696EB6008B209B /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0FD58226696EB6008B209B /* UserDetailTableViewCell.swift */; };
 		EF0FD58626697270008B209B /* FollowersCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0FD58526697270008B209B /* FollowersCellView.swift */; };
 		EF31D0FE2664270400F76699 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31D0FD2664270400F76699 /* UserListCoordinator.swift */; };
@@ -34,6 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF0CB1A626887B5A00FC1074 /* UserListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListAPI.swift; sourceTree = "<group>"; };
+		EF0CB1A926887F3700FC1074 /* UserDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailAPI.swift; sourceTree = "<group>"; };
+		EF0CB1AE2688827A00FC1074 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		EF0CB1B1268882A200FC1074 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EF0CB1BE2688857B00FC1074 /* UserDetailPluginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailPluginAPI.swift; sourceTree = "<group>"; };
+		EF0CB1C2268885AE00FC1074 /* UserListPluginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPluginAPI.swift; sourceTree = "<group>"; };
 		EF0FD58226696EB6008B209B /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
 		EF0FD58526697270008B209B /* FollowersCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCellView.swift; sourceTree = "<group>"; };
 		EF31D0FD2664270400F76699 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
@@ -73,33 +85,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EF31D1002664270B00F76699 /* Coordinator */ = {
+		EF0CB1A526887B3D00FC1074 /* PluginsAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CB1A626887B5A00FC1074 /* UserListAPI.swift */,
+				EF0CB1A926887F3700FC1074 /* UserDetailAPI.swift */,
+			);
+			path = PluginsAPIs;
+			sourceTree = "<group>";
+		};
+		EF0CB1AD2688826F00FC1074 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EFC228B02663ECCB0076C408 /* NetworkService */,
+				EF0CB1AE2688827A00FC1074 /* Container.swift */,
+				EF0CB1B1268882A200FC1074 /* Coordinator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EF0CB1B4268883E900FC1074 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CB1C12688859C00FC1074 /* PluginAPI */,
+				EF0CB1BB2688848B00FC1074 /* Model */,
+				EFC10CC02666395B006E849A /* Views */,
+				EF0CB1B5268883F700FC1074 /* Coordinator */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		EF0CB1B5268883F700FC1074 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				EF31D0FD2664270400F76699 /* UserListCoordinator.swift */,
-				EFC10CB2266630D9006E849A /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EF0CB1B62688843100FC1074 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CB1BD2688856700FC1074 /* PluginAPI */,
+				EF0CB1BA2688847B00FC1074 /* Model */,
+				EF0CB1B82688844F00FC1074 /* Coordinator */,
+				EF3A004C26665DA9006DB2B8 /* Views */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		EF0CB1B82688844F00FC1074 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
 				EFC10CB726663595006E849A /* UserDetailCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		EF37B2C22664383B00F1D3B9 /* View */ = {
+		EF0CB1BA2688847B00FC1074 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF3A004C26665DA9006DB2B8 /* UserDetail */,
-				EFC10CC02666395B006E849A /* UserList */,
+				EFC10CBD2666393B006E849A /* UserDetail.swift */,
 			);
-			path = View;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		EF3A004C26665DA9006DB2B8 /* UserDetail */ = {
+		EF0CB1BB2688848B00FC1074 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFC228AC2663ECAB0076C408 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF0CB1BD2688856700FC1074 /* PluginAPI */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CB1BE2688857B00FC1074 /* UserDetailPluginAPI.swift */,
+			);
+			path = PluginAPI;
+			sourceTree = "<group>";
+		};
+		EF0CB1C12688859C00FC1074 /* PluginAPI */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CB1C2268885AE00FC1074 /* UserListPluginAPI.swift */,
+			);
+			path = PluginAPI;
+			sourceTree = "<group>";
+		};
+		EF3A004C26665DA9006DB2B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EF3A0051266669BB006DB2B8 /* UserDetailCellViews */,
 				EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */,
 				EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */,
 			);
-			path = UserDetail;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EF3A0051266669BB006DB2B8 /* UserDetailCellViews */ = {
@@ -113,23 +195,14 @@
 			path = UserDetailCellViews;
 			sourceTree = "<group>";
 		};
-		EFC10CB626663485006E849A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EFC228AC2663ECAB0076C408 /* User.swift */,
-				EFC10CBD2666393B006E849A /* UserDetail.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EFC10CC02666395B006E849A /* UserList */ = {
+		EFC10CC02666395B006E849A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EFC10CC126663979006E849A /* UserListCell */,
 				EFC228992663E70A0076C408 /* UserListViewController.swift */,
 				EFC368342664C59C00E4D6A6 /* UserListViewController+Model.swift */,
 			);
-			path = UserList;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EFC10CC126663979006E849A /* UserListCell */ = {
@@ -161,11 +234,12 @@
 		EFC228942663E70A0076C408 /* MVVMC */ = {
 			isa = PBXGroup;
 			children = (
-				EFC10CB626663485006E849A /* Model */,
-				EF37B2C22664383B00F1D3B9 /* View */,
-				EFC228B02663ECCB0076C408 /* NetworkService */,
-				EF31D1002664270B00F76699 /* Coordinator */,
+				EF0CB1B62688843100FC1074 /* UserDetail */,
+				EF0CB1B4268883E900FC1074 /* UserList */,
+				EF0CB1AD2688826F00FC1074 /* Shared */,
+				EF0CB1A526887B3D00FC1074 /* PluginsAPIs */,
 				EFC228952663E70A0076C408 /* AppDelegate.swift */,
+				EFC10CB2266630D9006E849A /* AppCoordinator.swift */,
 				EFC228972663E70A0076C408 /* SceneDelegate.swift */,
 				EFC228A12663E70F0076C408 /* Assets.xcassets */,
 				EFC228A32663E70F0076C408 /* LaunchScreen.storyboard */,
@@ -256,7 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0FD58626697270008B209B /* FollowersCellView.swift in Sources */,
+				EF0CB1AA26887F3700FC1074 /* UserDetailAPI.swift in Sources */,
+				EF0CB1C3268885AE00FC1074 /* UserListPluginAPI.swift in Sources */,
+				EF0CB1B2268882A200FC1074 /* Coordinator.swift in Sources */,
 				EF3A004726663F94006DB2B8 /* UserDetailViewController.swift in Sources */,
+				EF0CB1A726887B5A00FC1074 /* UserListAPI.swift in Sources */,
 				EF3A0053266669F3006DB2B8 /* UserImageCell.swift in Sources */,
 				EFC2289A2663E70A0076C408 /* UserListViewController.swift in Sources */,
 				EFC228962663E70A0076C408 /* AppDelegate.swift in Sources */,
@@ -265,6 +343,7 @@
 				EFC368352664C59C00E4D6A6 /* UserListViewController+Model.swift in Sources */,
 				EFC3682F2664417A00E4D6A6 /* ImageService.swift in Sources */,
 				EFC228AF2663ECC50076C408 /* UserService.swift in Sources */,
+				EF0CB1AF2688827A00FC1074 /* Container.swift in Sources */,
 				EFC228982663E70A0076C408 /* SceneDelegate.swift in Sources */,
 				EFC228AD2663ECAB0076C408 /* User.swift in Sources */,
 				EF6B670F266ABD8200102F6A /* UserDetailsView.swift in Sources */,
@@ -275,6 +354,7 @@
 				EFC10CB3266630D9006E849A /* AppCoordinator.swift in Sources */,
 				EFC10CBE2666393B006E849A /* UserDetail.swift in Sources */,
 				EF31D0FE2664270400F76699 /* UserListCoordinator.swift in Sources */,
+				EF0CB1BF2688857B00FC1074 /* UserDetailPluginAPI.swift in Sources */,
 				EF3A004F26665F86006DB2B8 /* UserDetailViewController+Model.swift in Sources */,
 				EF768BD92664200B00865FFD /* UserCellView.swift in Sources */,
 			);

@@ -52,8 +52,10 @@ class UserListCoordinator: Coordinator<Void> {
 
 extension UserListCoordinator: UserListViewControllerDelegate {
     func didSelectUser(_ user: UserContext, sender: UserListViewController) {
-        let userDetailCoordinator = UserDetailCoordinator(userContext: user, navigationController: self.navigationController)
-        addChildCoordinator(userDetailCoordinator)
-        userDetailCoordinator.start()
+        if let userDetailAPI: UserDetailAPI = Container.shared.get() {
+            let userDetailCoordinator = userDetailAPI.getUserDetailsCoordinator(context: user, navigationController: navigationController)
+            addChildCoordinator(userDetailCoordinator)
+            userDetailCoordinator.start()
+        }
     }
 }

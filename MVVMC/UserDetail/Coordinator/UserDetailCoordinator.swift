@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import Combine
 
-struct UserContext {
-    public var id: Int
-    public var url: URL
-}
-
 class UserDetailCoordinator: Coordinator<Void> {
     private var navigationController: UINavigationController
     private var userDetailsService: UserDetailService

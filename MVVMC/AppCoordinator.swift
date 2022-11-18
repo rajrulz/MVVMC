@@ -14,9 +14,10 @@ class AppCoordinator: Coordinator<Void> {
     var navigationController: UINavigationController
     var bootStrapCoordinator: Coordinator<Void>
 
-    init(scene: UIWindowScene) {
-        window = UIWindow(windowScene: scene)
-        navigationController = UINavigationController()
+    init(window: UIWindow,
+         navigationController: UINavigationController) {
+        self.window = window
+        self.navigationController = navigationController
         window.rootViewController = navigationController
         bootStrapCoordinator = BootstrapCoordinator()
     }

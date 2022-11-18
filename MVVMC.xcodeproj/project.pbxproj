@@ -19,6 +19,7 @@
 		EF3A004726663F94006DB2B8 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */; };
 		EF3A004F26665F86006DB2B8 /* UserDetailViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */; };
 		EF3A0053266669F3006DB2B8 /* UserImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A0052266669F3006DB2B8 /* UserImageCell.swift */; };
+		EF45A31229283EC9007F7479 /* DeepLinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45A31129283EC9007F7479 /* DeepLinker.swift */; };
 		EF6B670F266ABD8200102F6A /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B670E266ABD8200102F6A /* UserDetailsView.swift */; };
 		EF768BD526641C4B00865FFD /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD426641C4B00865FFD /* UserTableViewCell.swift */; };
 		EF768BD92664200B00865FFD /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF768BD82664200B00865FFD /* UserCellView.swift */; };
@@ -52,6 +53,7 @@
 		EF3A004626663F94006DB2B8 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		EF3A004E26665F86006DB2B8 /* UserDetailViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailViewController+Model.swift"; sourceTree = "<group>"; };
 		EF3A0052266669F3006DB2B8 /* UserImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageCell.swift; sourceTree = "<group>"; };
+		EF45A31129283EC9007F7479 /* DeepLinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinker.swift; sourceTree = "<group>"; };
 		EF6B670E266ABD8200102F6A /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		EF768BD426641C4B00865FFD /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		EF768BD82664200B00865FFD /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				EFC228B02663ECCB0076C408 /* NetworkService */,
 				EF0CB1AE2688827A00FC1074 /* Container.swift */,
 				EF0CB1B1268882A200FC1074 /* Coordinator.swift */,
+				EF45A31129283EC9007F7479 /* DeepLinker.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				EF0CB1AA26887F3700FC1074 /* UserDetailAPI.swift in Sources */,
 				EF0CB1C3268885AE00FC1074 /* UserListPluginAPI.swift in Sources */,
 				EF0CB1B2268882A200FC1074 /* Coordinator.swift in Sources */,
+				EF45A31229283EC9007F7479 /* DeepLinker.swift in Sources */,
 				EF3A004726663F94006DB2B8 /* UserDetailViewController.swift in Sources */,
 				EF0CB1A726887B5A00FC1074 /* UserListAPI.swift in Sources */,
 				EF3A0053266669F3006DB2B8 /* UserImageCell.swift in Sources */,

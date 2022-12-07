@@ -9,20 +9,33 @@
 import Foundation
 
 extension UserListViewController {
-    enum ViewState {
+    enum ModelViewState {
+        case ready
         case loading
-        case loaded
+        case completed(Result<UserListViewController.Model, Error>)
+
+        public var cellModels: [UserCellView.Model] {
+            switch self {
+            case .ready, .loading:
+                return []
+            case .completed(let result):
+                switch result {
+                case .success(let model):
+                    return model.cellModels
+                case .failure(_):
+                    return []
+                }
+            }
+        }
     }
 
     struct Model {
-        var state: ViewState
         var title: String
         var cellModels: [UserCellView.Model]
 
-        init(state: ViewState, response: UserService.Response = .init(data: []), title: String = "") {
+        init(response: UserService.Response = .init(data: []), title: String = "") {
             self.cellModels = response.data.map { UserCellView.Model(user: $0) }
             self.title = title
-            self.state = state
         }
 
         func generateSections() -> [CellDisplayable] {

@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol UserDetailViewControllerDelegate: class {
+protocol UserDetailViewControllerDelegate: AnyObject {
     func viewDidClose(sender: UserDetailViewController)
 }
 class UserDetailViewController: UIViewController {
 
-    var model: Model {
+    var model: ModelViewState = .ready {
         didSet {
             applyModel()
         }
@@ -22,8 +22,7 @@ class UserDetailViewController: UIViewController {
     private var tableView: UITableView?
     weak var delegate: UserDetailViewControllerDelegate?
     private var sections: [CellDisplayable] = []
-    init(model: Model = .init()) {
-        self.model = model
+    init() {
         super.init(nibName: nil, bundle: nil)
         applyModel()
         setUpView()
@@ -59,14 +58,22 @@ class UserDetailViewController: UIViewController {
     }
 
     private func applyModel() {
-        if model.isEmpty() {
+        switch model {
+        case .ready:
+            break
+        case .loading:
             showLoadingIndicator()
-        } else {
+        case .completed(let result):
             hideLoadingIndicator()
-            sections.removeAll()
-            sections.append(contentsOf: model.generateSections())
-            title = model.screenTitle
-            tableView?.reloadData()
+            switch result {
+            case .success(let model):
+                sections.removeAll()
+                sections.append(contentsOf: model.generateSections())
+                title = model.screenTitle
+                tableView?.reloadData()
+            case .failure(let error):
+                print("\(error) occured in API call")
+            }
         }
     }
 
@@ -79,13 +86,11 @@ class UserDetailViewController: UIViewController {
     }
 
     private func showLoadingIndicator() {
-        tableView?.isHidden = true
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
     }
 
     private func hideLoadingIndicator() {
-        tableView?.isHidden = false
         loadingIndicator.isHidden = true
         loadingIndicator.stopAnimating()
     }

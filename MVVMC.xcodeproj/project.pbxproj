@@ -110,6 +110,7 @@
 		EF0CB1B4268883E900FC1074 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				EF99359A29406CDC00B3970E /* NetworkService */,
 				EF0CB1C12688859C00FC1074 /* PluginAPI */,
 				EF0CB1BB2688848B00FC1074 /* Model */,
 				EFC10CC02666395B006E849A /* Views */,
@@ -129,6 +130,7 @@
 		EF0CB1B62688843100FC1074 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EF99359B29406CF400B3970E /* NetworkService */,
 				EF0CB1BD2688856700FC1074 /* PluginAPI */,
 				EF0CB1BA2688847B00FC1074 /* Model */,
 				EF0CB1B82688844F00FC1074 /* Coordinator */,
@@ -198,6 +200,22 @@
 			path = UserDetailCellViews;
 			sourceTree = "<group>";
 		};
+		EF99359A29406CDC00B3970E /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				EFC228AE2663ECC50076C408 /* UserService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		EF99359B29406CF400B3970E /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				EFC10CBA26663657006E849A /* UserDetailService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		EFC10CC02666395B006E849A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,9 +273,7 @@
 		EFC228B02663ECCB0076C408 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				EFC228AE2663ECC50076C408 /* UserService.swift */,
 				EFC3682E2664417A00E4D6A6 /* ImageService.swift */,
-				EFC10CBA26663657006E849A /* UserDetailService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";

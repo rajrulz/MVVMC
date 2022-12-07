@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol UserListViewControllerDelegate: class {
+protocol UserListViewControllerDelegate: AnyObject {
     func didSelectUser(_ user: UserContext, sender: UserListViewController)
 }
 
 class UserListViewController: UIViewController {
 
-    var model: Model {
+    var model: ModelViewState = .ready {
         didSet {
             applyModel()
         }
@@ -24,8 +24,7 @@ class UserListViewController: UIViewController {
     private var tableView: UITableView?
     private var loadingIndicator = UIActivityIndicatorView()
 
-    init(model: UserListViewController.Model = .init(state: .loading)) {
-        self.model = model
+    init() {
         super.init(nibName: nil, bundle: nil)
         applyModel()
         setUpView()
@@ -60,26 +59,31 @@ class UserListViewController: UIViewController {
     }
 
     func applyModel() {
-        self.title = model.title
-        sections =  model.generateSections()
-        switch model.state {
-            case .loading:
-                showLoadingIndicator()
-            case .loaded:
+        switch model {
+        case .ready:
+            break
+        case .loading:
+            showLoadingIndicator()
+        case .completed(let result):
+            hideLoadingIndicator()
+            switch result {
+            case .success(let model):
+                self.title = model.title
+                sections =  model.generateSections()
                 tableView?.reloadData()
-                hideLoadingIndicator()
+            case .failure(let error):
+                print("TODO: Handle error state, API error occured: \(error)")
+            }
         }
     }
 
     func showLoadingIndicator() {
-        tableView?.isHidden = true
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
     }
 
     func hideLoadingIndicator() {
         loadingIndicator.stopAnimating()
-        tableView?.isHidden = false
         loadingIndicator.isHidden = true
     }
 }

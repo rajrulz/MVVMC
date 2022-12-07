@@ -30,14 +30,21 @@ class UserDetailCoordinator: Coordinator<Void> {
     override func start() {
         super.start()
         self.navigationController.navigationBar.prefersLargeTitles = false
+        navigationController.pushViewController(viewController, animated: true)
+        viewController.model = .loading
         userDetailsService.userDetails(for: .init(url: userContext.url))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in }) { [weak self] in
-                self?.viewController.model = UserDetailViewController.Model(userDetail: $0.data)
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    self?.viewController.model = .completed(.failure(error))
+                case .finished:
+                    print("Subsciption finished")
+                }
+            }) { [weak self] in
+                self?.viewController.model = .completed(.success(.init(userDetail: $0.data)))
             }
             .store(in: &cancellableSubscribers)
-
-        navigationController.pushViewController(viewController, animated: true)
     }
 }
 extension UserDetailCoordinator: UserDetailViewControllerDelegate {

@@ -9,6 +9,13 @@
 import Foundation
 
 extension UserDetailViewController {
+
+    enum ModelViewState {
+        case ready
+        case loading
+        case completed(Result<Model, Error>)
+    }
+
     struct Model {
         private var userName: String = ""
         private var id: Int = 0
@@ -26,8 +33,6 @@ extension UserDetailViewController {
         private var bio: String = ""
         private var location: String = ""
         var screenTitle: String = ""
-        
-        init() {}
 
         init(userDetail: UserDetail) {
             self.userName = userDetail.login ?? ""

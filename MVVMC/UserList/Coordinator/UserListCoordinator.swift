@@ -36,12 +36,18 @@ class UserListCoordinator: Coordinator<Void> {
         self.viewController.delegate = self
         self.navigationController.pushViewController(viewController, animated: true)
 
+        viewController.model = .loading
         userService.users(for: .init(url: url))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in }) { [weak self] in
-                self?.viewController.model = .init(state: .loaded,
-                                                   response: $0,
-                                                   title: "GitHub Users")
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    self?.viewController.model = .completed(.failure(error))
+                default:
+                    break
+                }
+            }) { [weak self] in
+                self?.viewController.model = .completed(.success(.init(response: $0, title: "GitHub Users")))
             }
             .store(in: &cancellableSubscribers)
     }

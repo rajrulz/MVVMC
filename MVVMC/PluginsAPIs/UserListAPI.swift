@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-protocol UserListAPI {
+protocol UserListAPI: PluginAPI {
     func getUserListCoordinator(navigationController: UINavigationController) -> Coordinator<Void>
 }

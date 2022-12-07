@@ -14,7 +14,10 @@ public struct UserContext {
     public var url: URL
 }
 
-protocol UserDetailAPI {
+protocol PluginAPI {
+    init(_ container: Container)
+}
+protocol UserDetailAPI: PluginAPI {
     func getUserDetailsCoordinator(context: UserContext, navigationController: UINavigationController) -> Coordinator<Void>
 }
 

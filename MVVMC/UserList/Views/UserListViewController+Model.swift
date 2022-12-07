@@ -9,13 +9,20 @@
 import Foundation
 
 extension UserListViewController {
+    enum ViewState {
+        case loading
+        case loaded
+    }
+
     struct Model {
+        var state: ViewState
         var title: String
         var cellModels: [UserCellView.Model]
 
-        init(response: UserService.Response = .init(data: []), title: String = "") {
+        init(state: ViewState, response: UserService.Response = .init(data: []), title: String = "") {
             self.cellModels = response.data.map { UserCellView.Model(user: $0) }
             self.title = title
+            self.state = state
         }
 
         func generateSections() -> [CellDisplayable] {

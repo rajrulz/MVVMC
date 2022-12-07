@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class UserDetailPluginAPI: UserDetailAPI {
+    private let container: Container
+    required init(_ container: Container) {
+        self.container = container
+    }
+
     func getUserDetailsCoordinator(context: UserContext, navigationController: UINavigationController) -> Coordinator<Void> {
         return UserDetailCoordinator(userContext: context,
                                      navigationController: navigationController)

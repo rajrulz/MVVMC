@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 
 class UserListPluginAPI: UserListAPI {
+    private let container: Container
+    required init(_ container: Container) {
+        self.container = container
+    }
+
     func getUserListCoordinator(navigationController: UINavigationController) -> Coordinator<Void> {
-        return UserListCoordinator(navigationController: navigationController)
+        return UserListCoordinator(container: container,
+                                   navigationController: navigationController)
     }
 }

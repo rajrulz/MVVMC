@@ -10,12 +10,12 @@ import Foundation
 
 class Container {
     private var registery: [String: Any] = [:]
-    static let shared = Container()
-    private init() {}
+    public init() {}
 
-    public func register<Interface>(_ interface: Interface.Type, _ initialiser: @escaping () -> Interface) {
+    public func register<Interface>(_ interface: Interface.Type,
+                                    _ initialiser: @escaping (Container) -> Interface) {
         let id = identifier(of: interface)
-        registery[id] = initialiser()
+        registery[id] = initialiser(self)
     }
 
     public func get<Interface>(_ interface: Interface.Type = Interface.self) -> Interface? {

@@ -17,11 +17,13 @@ class UserListCoordinator: Coordinator<Void> {
     private var userResponse: UserService.Response?
 
     private let viewController: UserListViewController
+    private let container: Container
 
-    init(navigationController: UINavigationController) {
+    init(container: Container, navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.userService = UserServiceClient()
         self.viewController = UserListViewController()
+        self.container = container
         super.init()
         setUp()
     }
@@ -37,7 +39,9 @@ class UserListCoordinator: Coordinator<Void> {
         userService.users(for: .init(url: url))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }) { [weak self] in
-                self?.viewController.model = .init(response: $0, title: "GitHub Users")
+                self?.viewController.model = .init(state: .loaded,
+                                                   response: $0,
+                                                   title: "GitHub Users")
             }
             .store(in: &cancellableSubscribers)
     }
@@ -52,7 +56,7 @@ class UserListCoordinator: Coordinator<Void> {
 
 extension UserListCoordinator: UserListViewControllerDelegate {
     func didSelectUser(_ user: UserContext, sender: UserListViewController) {
-        if let userDetailAPI: UserDetailAPI = Container.shared.get() {
+        if let userDetailAPI: UserDetailAPI = container.get() {
             let userDetailCoordinator = userDetailAPI.getUserDetailsCoordinator(context: user, navigationController: navigationController)
             addChildCoordinator(userDetailCoordinator)
             userDetailCoordinator.start()

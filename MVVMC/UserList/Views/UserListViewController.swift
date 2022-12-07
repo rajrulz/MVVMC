@@ -24,7 +24,7 @@ class UserListViewController: UIViewController {
     private var tableView: UITableView?
     private var loadingIndicator = UIActivityIndicatorView()
 
-    init(model: UserListViewController.Model = .init()) {
+    init(model: UserListViewController.Model = .init(state: .loading)) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
         applyModel()
@@ -62,11 +62,12 @@ class UserListViewController: UIViewController {
     func applyModel() {
         self.title = model.title
         sections =  model.generateSections()
-        if sections.isEmpty {
-            showLoadingIndicator()
-        } else {
-            tableView?.reloadData()
-            hideLoadingIndicator()
+        switch model.state {
+            case .loading:
+                showLoadingIndicator()
+            case .loaded:
+                tableView?.reloadData()
+                hideLoadingIndicator()
         }
     }
 

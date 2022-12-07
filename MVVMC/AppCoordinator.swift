@@ -13,19 +13,21 @@ class AppCoordinator: Coordinator<Void> {
     var window: UIWindow
     var navigationController: UINavigationController
     var bootStrapCoordinator: Coordinator<Void>
+    private let container: Container
 
     init(window: UIWindow,
          navigationController: UINavigationController) {
         self.window = window
         self.navigationController = navigationController
+        self.container = Container()
         window.rootViewController = navigationController
-        bootStrapCoordinator = BootstrapCoordinator()
+        bootStrapCoordinator = BootstrapCoordinator(container)
     }
 
     override func start() {
         bootStrapCoordinator.start()
 
-        if let userListAPI: UserListAPI = Container.shared.get() {
+        if let userListAPI: UserListAPI = container.get() {
             let userListCoordinator = userListAPI.getUserListCoordinator(navigationController: navigationController)
             userListCoordinator.start()
             addChildCoordinator(userListCoordinator)
@@ -35,11 +37,16 @@ class AppCoordinator: Coordinator<Void> {
 }
 
 class BootstrapCoordinator: Coordinator<Void> {
+    private let container: Container
+
+    init(_ container: Container) {
+        self.container = container
+    }
 
     override func start() {
         super.start()
-        
-        Container.shared.register(UserListAPI.self, UserListPluginAPI.init)
-        Container.shared.register(UserDetailAPI.self, UserDetailPluginAPI.init)
+
+        container.register(UserListAPI.self, UserListPluginAPI.init)
+        container.register(UserDetailAPI.self, UserDetailPluginAPI.init)
     }
 }

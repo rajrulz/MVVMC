@@ -1,2 +1,2 @@
 # GitHubUsers
-An example of MVVM-Coordinator design pattern. 
+An example to demonstrate plugin architecture along with of MVVM-Coordinator design pattern. 
